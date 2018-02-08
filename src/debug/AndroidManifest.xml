@@ -1,0 +1,8 @@
+<manifest package="com.github.rstanic12.resourceful"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity
+            android:name=".TestActivity"
+            android:theme="@style/Theme.AppCompat"/>
+    </application>
+</manifest>
