@@ -1,6 +1,6 @@
 package com.github.rstanic12.resourceful
 
-import android.support.v4.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 
 class TestSupportDialogFragment : DialogFragment() {
     val color: Int by bindColor(R.color.test_color)

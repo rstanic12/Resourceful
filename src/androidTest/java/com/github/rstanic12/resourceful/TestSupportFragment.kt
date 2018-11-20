@@ -1,6 +1,6 @@
 package com.github.rstanic12.resourceful
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
 class TestSupportFragment : Fragment() {
     val color: Int by bindColor(R.color.test_color)

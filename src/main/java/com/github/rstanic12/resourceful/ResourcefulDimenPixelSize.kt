@@ -4,9 +4,11 @@ import android.app.Activity
 import android.app.Dialog
 import android.app.DialogFragment
 import android.app.Fragment
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import kotlin.properties.ReadOnlyProperty
+import androidx.fragment.app.DialogFragment as SupportDialogFragment
+import androidx.fragment.app.Fragment as SupportFragment
 
 fun View.bindDimenPixelSize(id: Int): ReadOnlyProperty<View, Int> =
         requiredDimenPixelSize(id, dimenFinder)
@@ -20,13 +22,13 @@ fun Dialog.bindDimenPixelSize(id: Int): ReadOnlyProperty<Dialog, Int> =
 fun DialogFragment.bindDimenPixelSize(id: Int): ReadOnlyProperty<DialogFragment, Int> =
         requiredDimenPixelSize(id, dimenFinder)
 
-fun android.support.v4.app.DialogFragment.bindDimenPixelSize(id: Int): ReadOnlyProperty<android.support.v4.app.DialogFragment, Int> =
+fun SupportDialogFragment.bindDimenPixelSize(id: Int): ReadOnlyProperty<SupportDialogFragment, Int> =
         requiredDimenPixelSize(id, dimenFinder)
 
 fun Fragment.bindDimenPixelSize(id: Int): ReadOnlyProperty<Fragment, Int> =
         requiredDimenPixelSize(id, dimenFinder)
 
-fun android.support.v4.app.Fragment.bindDimenPixelSize(id: Int): ReadOnlyProperty<android.support.v4.app.Fragment, Int> =
+fun SupportFragment.bindDimenPixelSize(id: Int): ReadOnlyProperty<SupportFragment, Int> =
         requiredDimenPixelSize(id, dimenFinder)
 
 fun RecyclerView.ViewHolder.bindDimenPixelSize(id: Int): ReadOnlyProperty<RecyclerView.ViewHolder, Int> =
@@ -47,13 +49,13 @@ private val Dialog.dimenFinder: Dialog.(Int) -> Int?
 private val DialogFragment.dimenFinder: DialogFragment.(Int) -> Int?
     get() = { resources.getDimensionPixelSize(it) }
 
-private val android.support.v4.app.DialogFragment.dimenFinder: android.support.v4.app.DialogFragment.(Int) -> Int?
+private val SupportDialogFragment.dimenFinder: SupportDialogFragment.(Int) -> Int?
     get() = { resources.getDimensionPixelSize(it) }
 
 private val Fragment.dimenFinder: Fragment.(Int) -> Int?
     get() = { resources.getDimensionPixelSize(it) }
 
-private val android.support.v4.app.Fragment.dimenFinder: android.support.v4.app.Fragment.(Int) -> Int?
+private val SupportFragment.dimenFinder: SupportFragment.(Int) -> Int?
     get() = { resources.getDimensionPixelSize(it) }
 
 private val RecyclerView.ViewHolder.dimenFinder: RecyclerView.ViewHolder.(Int) -> Int?

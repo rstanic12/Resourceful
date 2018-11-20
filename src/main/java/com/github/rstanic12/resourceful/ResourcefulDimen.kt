@@ -1,12 +1,16 @@
+@file:Suppress("unused")
+
 package com.github.rstanic12.resourceful
 
 import android.app.Activity
 import android.app.Dialog
 import android.app.DialogFragment
 import android.app.Fragment
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import kotlin.properties.ReadOnlyProperty
+import androidx.fragment.app.DialogFragment as SupportDialogFragment
+import androidx.fragment.app.Fragment as SupportFragment
 
 fun View.bindDimen(id: Int): ReadOnlyProperty<View, Float> =
         requiredDimen(id, dimenFinder)
@@ -20,13 +24,13 @@ fun Dialog.bindDimen(id: Int): ReadOnlyProperty<Dialog, Float> =
 fun DialogFragment.bindDimen(id: Int): ReadOnlyProperty<DialogFragment, Float> =
         requiredDimen(id, dimenFinder)
 
-fun android.support.v4.app.DialogFragment.bindDimen(id: Int): ReadOnlyProperty<android.support.v4.app.DialogFragment, Float> =
+fun SupportDialogFragment.bindDimen(id: Int): ReadOnlyProperty<SupportDialogFragment, Float> =
         requiredDimen(id, dimenFinder)
 
 fun Fragment.bindDimen(id: Int): ReadOnlyProperty<Fragment, Float> =
         requiredDimen(id, dimenFinder)
 
-fun android.support.v4.app.Fragment.bindDimen(id: Int): ReadOnlyProperty<android.support.v4.app.Fragment, Float> =
+fun SupportFragment.bindDimen(id: Int): ReadOnlyProperty<SupportFragment, Float> =
         requiredDimen(id, dimenFinder)
 
 fun RecyclerView.ViewHolder.bindDimen(id: Int): ReadOnlyProperty<RecyclerView.ViewHolder, Float> =
@@ -47,13 +51,13 @@ private val Dialog.dimenFinder: Dialog.(Int) -> Float?
 private val DialogFragment.dimenFinder: DialogFragment.(Int) -> Float?
     get() = { resources.getDimension(it) }
 
-private val android.support.v4.app.DialogFragment.dimenFinder: android.support.v4.app.DialogFragment.(Int) -> Float?
+private val SupportDialogFragment.dimenFinder: SupportDialogFragment.(Int) -> Float?
     get() = { resources.getDimension(it) }
 
 private val Fragment.dimenFinder: Fragment.(Int) -> Float?
     get() = { resources.getDimension(it) }
 
-private val android.support.v4.app.Fragment.dimenFinder: android.support.v4.app.Fragment.(Int) -> Float?
+private val SupportFragment.dimenFinder: SupportFragment.(Int) -> Float?
     get() = { resources.getDimension(it) }
 
 private val RecyclerView.ViewHolder.dimenFinder: RecyclerView.ViewHolder.(Int) -> Float?

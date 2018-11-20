@@ -1,6 +1,6 @@
 package com.github.rstanic12.resourceful
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 class TestActivity : AppCompatActivity() {
     val color: Int by bindColor(R.color.test_color)

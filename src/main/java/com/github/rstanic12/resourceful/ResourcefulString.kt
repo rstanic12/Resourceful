@@ -4,9 +4,11 @@ import android.app.Activity
 import android.app.Dialog
 import android.app.DialogFragment
 import android.app.Fragment
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import kotlin.properties.ReadOnlyProperty
+import androidx.fragment.app.DialogFragment as SupportDialogFragment
+import androidx.fragment.app.Fragment as SupportFragment
 
 fun View.bindString(id: Int): ReadOnlyProperty<View, String> =
         requiredString(id, stringFinder)
@@ -20,13 +22,13 @@ fun Dialog.bindString(id: Int): ReadOnlyProperty<Dialog, String> =
 fun DialogFragment.bindString(id: Int): ReadOnlyProperty<DialogFragment, String> =
         requiredString(id, stringFinder)
 
-fun android.support.v4.app.DialogFragment.bindString(id: Int): ReadOnlyProperty<android.support.v4.app.DialogFragment, String> =
+fun SupportDialogFragment.bindString(id: Int): ReadOnlyProperty<SupportDialogFragment, String> =
         requiredString(id, stringFinder)
 
 fun Fragment.bindString(id: Int): ReadOnlyProperty<Fragment, String> =
         requiredString(id, stringFinder)
 
-fun android.support.v4.app.Fragment.bindString(id: Int): ReadOnlyProperty<android.support.v4.app.Fragment, String> =
+fun SupportFragment.bindString(id: Int): ReadOnlyProperty<SupportFragment, String> =
         requiredString(id, stringFinder)
 
 fun RecyclerView.ViewHolder.bindString(id: Int): ReadOnlyProperty<RecyclerView.ViewHolder, String> =
@@ -47,13 +49,13 @@ private val Dialog.stringFinder: Dialog.(Int) -> String?
 private val DialogFragment.stringFinder: DialogFragment.(Int) -> String?
     get() = { getString(it) }
 
-private val android.support.v4.app.DialogFragment.stringFinder: android.support.v4.app.DialogFragment.(Int) -> String?
+private val SupportDialogFragment.stringFinder: SupportDialogFragment.(Int) -> String?
     get() = { getString(it) }
 
 private val Fragment.stringFinder: Fragment.(Int) -> String?
     get() = { getString(it) }
 
-private val android.support.v4.app.Fragment.stringFinder: android.support.v4.app.Fragment.(Int) -> String?
+private val SupportFragment.stringFinder: SupportFragment.(Int) -> String?
     get() = { getString(it) }
 
 private val RecyclerView.ViewHolder.stringFinder: RecyclerView.ViewHolder.(Int) -> String?

@@ -1,6 +1,6 @@
 package com.github.rstanic12.resourceful
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 
 class TestRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
