@@ -42,10 +42,6 @@ allprojects {
 Add the dependency in app build.gradle
 ```gradle
 dependencies {
-  compile 'com.github.rstanic12:Resourceful:1.0.0'
+  compile 'com.github.rstanic12:Resourceful:1.1.1'
 }
 ```
-
-Credits
--------
-Library inspired by Kotter Knife created by Jake Wharton
